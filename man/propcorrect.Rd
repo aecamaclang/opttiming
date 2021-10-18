@@ -7,35 +7,27 @@
 \alias{propsig}
 \title{Proportion of habitat correctly identified}
 \usage{
-proplin(B, m = (9/50), yint = 1, q = 1, x)
+proplin(B, m, a, t, q = 1, x)
 
-prophyp(B, hyp = NULL, b = NULL, m = NULL, yint = 1, q = 1, x)
+prophyp(B, b, m, a, t, q = 1, x)
 
-propsig(B, sig = NULL, b = NULL, m = NULL, yint = 1, q = 1, x)
+propsig(B, b, m, a, t, q = 1, x)
 }
 \arguments{
 \item{B}{The threshold false positive rate \eqn{\beta}.}
 
-\item{yint}{The accuracy (\code{a}) of classification or identification at time
-\code{t = 0} (i.e., the y-intercept of the learning curve); default value
-\code{yint = 1}.}
+\item{a}{The accuracy of identification at time t based on the learning curve used.}
+
+\item{t}{The amount of time to spend learning.}
 
 \item{q}{A value indicating whether optimal time should be calculated based
 on loss model (\code{q = 1}) or growth model (\code{q = -1}).}
 
-\item{x}{TThe rate of loss (if \code{q = 1}) or growth (if \code{q = -1}).}
-
-\item{hyp}{The type of hyperbolic learning curve to be used with
-\code{prophyp()}.For \code{hyp = 1}, sets \code{bhyp = 9.25} and \code{mhyp
-  = 1}; for \code{hyp = 2}, sets \code{bhyp = 10} and \code{mhyp = 5}.}
+\item{x}{A positive value for the rate of loss (if \code{q = 1}) or growth (if \code{q = -1}).}
 
 \item{b, m}{Parameters defining the shape of the learning curves; if
 manually specified, overrides the default parameters of those set by specifying
 \code{hyp} or \code{sig}.}
-
-\item{sig}{The type of sigmoid learning curve to be used with
-\code{propsig()}. For \code{sig = 1}, sets \code{b = 10} and \code{m =
-  0.15}; for \code{sig = 2}, sets \code{b = 10.75} and \code{m = 0.1}.}
 }
 \value{
 The proportion correctly identified at the optimal time given the
@@ -47,8 +39,8 @@ habitat correctly identified at the optimal time under different learning
 curves and threshold false positive rates (\eqn{\beta}).
 }
 \examples{
-proplin(B = 0.2, x = 5)
-prophyp(B = 0.5, hyp = 2, x = 1)
-propsig(B = 0.2, b = 9, m = 0.2, x = 0.5)
+proplin(B = 0.2, m = 0.2, a = 4, t = 3, x = 0.1)
+prophyp(B = 0.5, b = 10, m = 5, a = 2, t = 5, x = 0.01)
+propsig(B = 0.2, b = 9, m = 0.2, a = 6, t = 2, x = 0.5)
 
 }

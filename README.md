@@ -33,18 +33,18 @@ To predict the optimal amount of time to spend learning under a hyperbolic learn
 
 ``` r
 library(opttiming)
-result_optim <- opthyp(B = 0.2, b = 10, m = 5, x = 0.02)
+ot_h1 <- opthyp(B = 0.2, b = 10, m = 5, x = 0.02)
 ```
-To estimate the accuracy of identification after 5 years (x = 5) for a linear learning curves with slope m = 9/50:
+To estimate the accuracy of identification under the same hyperbolic learning curve, if the optimal amount of time is spent learning:
 
 ```r
-accuracy <- linear(m = 9/50, yint = 1, x = 5)
+acc <- hyperb(b = 10, m = 5, x = ot_h1)
 ```
 
-To estimate the proportion of habitat correctly identified:
+To estimate the proportion of habitat correctly identified at the optimal time:
 
 ```r
-prop <- propsig()
+prop <- prophyp(B = 0.2, b = 10, m = 5, a = acc, t = ot_h1, x = 0.02)
 ```
 
 ## Manuscript results and figures
