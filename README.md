@@ -1,12 +1,22 @@
+<<<<<<< HEAD
 # opttiming: Predicting the optimal time to spend learning 
 
 This R package implements the anaytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
+=======
+# Optimal time to spend learning before designating protected habitat
+
+This package implements the anaytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
+>>>>>>> 535579b8f6e77ddf12449435a2bdffa1ef2b41aa
   
 Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021)"Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species."
 
 ## Installation
 
+<<<<<<< HEAD
 You can install the R package "opttiming" by running the following in R Studio:
+=======
+You can install the R package opttiming from [CRAN](https://CRAN.R-project.org) with:
+>>>>>>> 535579b8f6e77ddf12449435a2bdffa1ef2b41aa
 
 ``` r
 install.packages("devtools")
@@ -48,5 +58,9 @@ prop <- propsig()
 
 ## Manuscript results and figures
 
+<<<<<<< HEAD
 R scripts used to generate the results and figures presented in the manuscript can be found in the analysis subfolder included in this repository.
+=======
+R scripts used to generate the results and figures presented in the manuscript can be found in the analysis subfolder.
+>>>>>>> 535579b8f6e77ddf12449435a2bdffa1ef2b41aa
 
