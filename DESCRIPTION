@@ -1,0 +1,21 @@
+Package: opttiming
+Title: Predict the optimal time to spend learning
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Abbey",
+           family = "Camaclang",
+           role = c("aut", "cre"),
+           email = "abbey.camaclang@gmail.com",
+           comment = c(ORCID = "0000-0001-7334-3483"))
+Description: Functions for predicting the optimal time to spend
+    learning about a species' habitat that maximizes the proportion 
+    correctly identified, under different assumptions about the shape 
+    of learning curves and rates of habitat loss or population decline. 
+    Implementation of the analysis presented in the manuscript 
+    Camaclang, et al. (2021) "Predicting the optimal amount of time to spend 
+    learning before designating protected habitat for threatened species."
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
