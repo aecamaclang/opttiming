@@ -7,11 +7,11 @@
 \alias{propsig}
 \title{Proportion of habitat correctly identified}
 \usage{
-proplin(B, m, a, t, q = 1, x)
+proplin(B, m = 9/50, a, t, q = 1, x)
 
-prophyp(B, b, m, a, t, q = 1, x)
+prophyp(B, b = 9.25, m = 1, a, t, q = 1, x)
 
-propsig(B, b, m, a, t, q = 1, x)
+propsig(B, b = 10, m = 0.15, a, t, q = 1, x)
 }
 \arguments{
 \item{B}{The threshold false positive rate \eqn{\beta}.}
@@ -26,8 +26,7 @@ on loss model (\code{q = 1}) or growth model (\code{q = -1}).}
 \item{x}{A positive value for the rate of loss (if \code{q = 1}) or growth (if \code{q = -1}).}
 
 \item{b, m}{Parameters defining the shape of the learning curves; if
-manually specified, overrides the default parameters of those set by specifying
-\code{hyp} or \code{sig}.}
+manually specified, overrides the default parameters.}
 }
 \value{
 The proportion correctly identified at the optimal time given the

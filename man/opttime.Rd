@@ -7,11 +7,11 @@
 \alias{optsig}
 \title{Optimal time to spend learning}
 \usage{
-optlin(B, m = (9/50), yint = 1, q = 1, x)
+optlin(B, m = 9/50, yint = 1, q = 1, x)
 
-opthyp(B, hyp = NULL, b = NULL, m = NULL, yint = 1, q = 1, x)
+opthyp(B, b = 9.25, m = 1, yint = 1, q = 1, x)
 
-optsig(B, sig = NULL, b = NULL, m = NULL, yint = 1, q = 1, x)
+optsig(B, b = 10, m = 0.15, yint = 1, q = 1, x)
 }
 \arguments{
 \item{B}{The threshold false positive rate \eqn{\beta}.}
@@ -26,17 +26,8 @@ on a (positive) loss model (\code{q = 1}) or a (negative) growth model
 
 \item{x}{The rate of loss (if \code{q = 1}) or growth (if \code{q = -1}).}
 
-\item{hyp}{The type of hyperbolic learning curve to be used with
-\code{prophyp()}.For \code{hyp = 1}, sets \code{bhyp = 9.25} and \code{mhyp
-  = 1}; for \code{hyp = 2}, sets \code{bhyp = 10} and \code{mhyp = 5}.}
-
 \item{b, m}{Parameters defining the shape of the learning curves; if
-manually specified, overrides the default parameters or those set by specifying
-\code{hyp} or \code{sig}.}
-
-\item{sig}{The type of sigmoid learning curve to be used with
-\code{propsig()}. For \code{sig = 1}, sets \code{b = 10} and \code{m =
-  0.15}; for \code{sig = 2}, sets \code{b = 10.75} and \code{m = 0.1}.}
+manually specified, overrides the default parameters.}
 }
 \value{
 The optimal amount of time to spend learning that maximizes the
