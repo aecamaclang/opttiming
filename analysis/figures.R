@@ -12,7 +12,9 @@
 #'
 #'
 
+# library(opttiming)
 # library(here)
+# path <- here()
 
 #' Set parameters
 mlin<-9/50
@@ -38,8 +40,6 @@ l2 <- 0.02
 
 #' ROC curve function
 ROC <- function(a, x) x^(1/a)
-
-path <- here()
 
 #' Figure 1 plots
 # ROC curves (true positive rate vs. false positive rate)
@@ -97,7 +97,7 @@ dev.off()
 #' different values of a, based on ROC curves of the form delta = beta^(1/a)
 
 pdf(paste(path,"/analysis/Fig2.pdf", sep = ""), 3.15, 7)
-# tiff("Fig2.tiff", 3.15, 7 ,units="in", res=600)
+# tiff(paste(path,"/analysis/Fig2.pdf", sep = ""), 3.15, 7 ,units="in", res=600)
 par(mfrow = c(2, 1))
 par(mar = c(4.1, 4.1, 2.1, 1.1))
 

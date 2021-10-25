@@ -10,6 +10,7 @@
 #' "Predicting the optimal amount of time to spend learning before
 #' designating protected habitat for threatened species."
 
+# library(opttiming)
 # library(here)
 # path <- here()
 
