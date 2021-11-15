@@ -1,23 +1,22 @@
-#' ---
-#' title: "Optimal timing"
-#' author: "A E Camaclang"
-#' date: "2021-10-14"
-#' output: github_document
-#' ---
-#'
-#' Creates figures for the manuscript:  
-#' Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021)
-#' Predicting the optimal amount of time to spend learning before
-#' designating protected habitat for threatened species. Methods in
-#' Ecology and Evolution: in press. 
-#'  
-#' Load packages
-#+ warning = FALSE, message = FALSE
+Optimal timing
+================
+A E Camaclang
+2021-10-14
+
+Creates figures for the manuscript:
+Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021) Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species. Methods in Ecology and Evolution: in press.
+
+Load packages
+
+``` r
 library(opttiming)
 library(here)
 path <- here()
+```
 
-#' Set parameters
+Set parameters
+
+``` r
 mlin<-9/50
 
 bhyp1<-9.25
@@ -38,11 +37,17 @@ B1 <- 0.2 # B = threshold false positive rate, beta
 B2 <- 0.5
 l1 <- 0.01 # l = rate of habitat loss, lambda (or negative pop'n growth rate, r)
 l2 <- 0.02
+```
 
-#' ROC curve function
+ROC curve function
+
+``` r
 ROC <- function(a, x) x^(1/a)
+```
 
-#' Figure 1 plots
+Figure 1 plots
+
+``` r
 # ROC curves (true positive rate vs. false positive rate)
 pdf(paste(path, "/analysis/figures/ROCcurves.pdf", sep = ""), 4, 4)
 par(mar=c(4.1,4.1,2.1,1.1))
@@ -58,7 +63,12 @@ text(0.35, 0.55, "accuracy=3", cex = 1.2)
 text(0.2, 0.92, "accuracy=10", cex = 1.2)
 
 dev.off()
+```
 
+    ## png 
+    ##   2
+
+``` r
 # Proportion of habitat designated vs. time spent learning, no habitat loss
 # given beta = 0.2 (B1) and linear learning curve
 pdf(paste(path, "/analysis/figures/learning.pdf", sep = ""), 4, 4)
@@ -67,14 +77,24 @@ curve(B1^(1/(linear(m = mlin, yint = a0, x = x))),
       cex.lab = 1.5, mgp = c(2.5, 1, 0),
       xlab = "Time spent learning", ylab = "Proportion of habitat designated")
 dev.off()
+```
 
+    ## png 
+    ##   2
+
+``` r
 # Proportion of habitat remaining over time, given lambda = 0.02 (l2)
 pdf(paste(path, "/analysis/figures/habitatloss.pdf", sep = ""), 4, 4)
 curve(exp(-l2 * x), xlim = c(0,50), ylim = c(0,1), xaxs = "i", yaxs = "i", bty = "n",
       cex.lab = 1.5, mgp = c(2.5, 1, 0),
       xlab = "Time", ylab = "Proportion of habitat remaining")
 dev.off()
+```
 
+    ## png 
+    ##   2
+
+``` r
 # Proportion of habitat designated vs. time spent learning, with habitat loss
 pdf(paste(path, "/analysis/figures/optimal.pdf", sep = ""),4,4)
 curve(exp(-l2 * x) * B1^(1/(linear(m = mlin, yint = a0, x = x))),
@@ -91,12 +111,14 @@ segments(x0 = 0, y0 = area, x1 = lowlin, y1 = area, lty = "dashed")
 mtext("max\narea", side = 2, at = c(area+0.03), line = 0.1, cex = 0.7, las = 1)
 
 dev.off()
+```
 
-#' Figure 2. Hypothetical curves modelling (a) the increase in the accuracy, a,
-#' of habitat identification over time as learning occurs, and (b) the rate of
-#' true positives, delta, relative to the rate of false positives, beta, for
-#' different values of a, based on ROC curves of the form delta = beta^(1/a)
+    ## png 
+    ##   2
 
+Figure 2. Hypothetical curves modelling (a) the increase in the accuracy, a, of habitat identification over time as learning occurs, and (b) the rate of true positives, delta, relative to the rate of false positives, beta, for different values of a, based on ROC curves of the form delta = beta^(1/a)
+
+``` r
 pdf(paste(path,"/analysis/figures/Fig2.pdf", sep = ""), 3.15, 7)
 # tiff(paste(path,"/analysis/figures/Fig2.pdf", sep = ""), 3.15, 7 ,units="in", res=600)
 par(mfrow = c(2, 1))
@@ -137,12 +159,14 @@ text(0.1, 0.9, "a=10", cex=0.75)
 mtext("(b)", side = 3, adj = 0, line = 1)
 
 dev.off()
+```
 
-#' Figure 3. Proportion of initial habitat area correctly identified
-#' and protected over time when no habitat loss is occurring (black solid line)
-#' and when habitat area is decreasing by lambda (l2) = 0.02 (red solid line), assuming a
-#' linear learning curve and false positive rate beta (B2) = 0.5.
+    ## png 
+    ##   2
 
+Figure 3. Proportion of initial habitat area correctly identified and protected over time when no habitat loss is occurring (black solid line) and when habitat area is decreasing by lambda (l2) = 0.02 (red solid line), assuming a linear learning curve and false positive rate beta (B2) = 0.5.
+
+``` r
 pdf(paste(path,"/analysis/figures/Fig3.pdf", sep = ""),3.15,3.15)
 # tiff(paste(path,"/analysis/figures/Fig3.tiff", sep = ""),width = 4, height = 4, units = "in",res=600)
 par(mar = c(4.1,4.1,1.1,1.1))
@@ -195,16 +219,16 @@ legend(x = "bottomright", legend = c("available, no loss",
 # , inset = c(0,0.05))
 
 dev.off()
+```
 
-#' Figure 4. (a) Optimal amount of time to spend learning before protecting habitat
-#' for the koala at different rates of habitat loss for five different learning curves
-#' and for false positive beta = 0.5 and beta = 0.2, and (b) the corresponding proportion
-#' of the initial habitat area protected when the optimal amount of time is spent learning
-#' before designation.
-#'
-#' For habitat loss rates ranging from lambda = 0 to lambda = 0.01
-#'
-#+ warning = FALSE, message = FALSE
+    ## png 
+    ##   2
+
+Figure 4. (a) Optimal amount of time to spend learning before protecting habitat for the koala at different rates of habitat loss for five different learning curves and for false positive beta = 0.5 and beta = 0.2, and (b) the corresponding proportion of the initial habitat area protected when the optimal amount of time is spent learning before designation.
+
+For habitat loss rates ranging from lambda = 0 to lambda = 0.01
+
+``` r
 pdf(paste(path,"/analysis/figures/Fig4.pdf", sep = ""), 7, 7) # Figure 6
 # tiff(paste(path, "/analysis/figures/Fig4.tiff", sep = ""), 7, 7, units = "in", res = 600)
 par(mfrow = c(2,2))
@@ -284,16 +308,16 @@ legend(x = "bottomright", inset = 0.05, bty = "n",
        title = "Learning curve")
 
 dev.off()
+```
 
-#' Figure 5. (a) Optimal amount of time to spend learning before protecting habitat
-#' for the northern abalone at different rates of poaching for five different
-#' learning curves and for false positive rate beta = 0.5 and beta = 0.2, and
-#' (b) the corresponding proportion of the initial habitat area protected when
-#' the optimal amount of time is spent learning before designation.
-#'
-#' For poaching rates ranging from lambda = 0 to lambda = 0.5
-#'
-#+ warning = FALSE, message = FALSE
+    ## png 
+    ##   2
+
+Figure 5. (a) Optimal amount of time to spend learning before protecting habitat for the northern abalone at different rates of poaching for five different learning curves and for false positive rate beta = 0.5 and beta = 0.2, and (b) the corresponding proportion of the initial habitat area protected when the optimal amount of time is spent learning before designation.
+
+For poaching rates ranging from lambda = 0 to lambda = 0.5
+
+``` r
 pdf(paste(path, "/analysis/figures/Fig5.pdf", sep = ""), 7, 7) # Figure 7
 # tiff(paste(path, "/analysis/figures/Fig5.tiff", sep = ""), 7, 7, units = "in",res = 600)
 par(mfrow = c(2,2))
@@ -394,4 +418,7 @@ segments(x0 = -(b2 - a0) * m2 * log(B1)/b2 * a0, y0 = B1,
          x1 = 0.5, y1 = B1, col = "red", lty = "dashed")
 
 dev.off()
+```
 
+    ## png 
+    ##   2
