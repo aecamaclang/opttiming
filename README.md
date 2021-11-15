@@ -1,6 +1,6 @@
 # opttiming: Predicting the optimal time to spend learning 
 
-This R package implements the anaytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
+This R package implements the analytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
   
 Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021) Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species. Methods in Ecology and Evolution: _in press._
 
@@ -23,7 +23,7 @@ devtools::install()
 ### Details
 Includes functions for  
 1. predicting the optimal time to spend learning for different learning curves: optlin(), opthyp(), optsig()  
-2. determining the accuracy of identification at a given time for different learning curve: linear(), hyperb(), sigmoid()  
+2. determining the accuracy of identification at a given time for different learning curves: linear(), hyperb(), sigmoid()  
 3. calculating the proportion that is correctly identified at a given time for different learning curves: proplin(), prophyp(), propsig()
 
 
