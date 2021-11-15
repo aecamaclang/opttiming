@@ -11,9 +11,10 @@ Description: Functions for predicting the optimal time to spend
     learning about a species' habitat that maximizes the proportion 
     correctly identified, under different assumptions about the shape 
     of learning curves and rates of habitat loss or population decline. 
-    Implementation of the analysis presented in the manuscript 
-    Camaclang, et al. (2021) "Predicting the optimal amount of time to spend 
-    learning before designating protected habitat for threatened species."
+    Implementation of the analysis presented in the manuscript: 
+    Camaclang, et al. (2021) Predicting the optimal amount of time to spend 
+    learning before designating protected habitat for threatened species. 
+    Methods in Ecology and Evolution: in press.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
