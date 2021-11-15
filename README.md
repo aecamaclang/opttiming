@@ -1,5 +1,7 @@
 # opttiming: Predicting the optimal time to spend learning 
 
+[![DOI](https://zenodo.org/badge/418300142.svg)](https://zenodo.org/badge/latestdoi/418300142)
+
 This R package implements the analytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
   
 Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021) Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species. Methods in Ecology and Evolution: _in press._
