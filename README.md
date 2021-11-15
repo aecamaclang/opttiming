@@ -2,9 +2,9 @@
 
 This R package implements the anaytical solution for predicting the optimal amount of time to spend learning before designating a species' habitat for protection, as described in:  
   
-Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021) "Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species."
+Camaclang, AE, Chades, I, Martin, TG, and Possingham, HP. (2021) Predicting the optimal amount of time to spend learning before designating protected habitat for threatened species. Methods in Ecology and Evolution: _in press._
 
-## Installation
+### Installation
 
 You can install the R package "opttiming" by running the following in R Studio:
 
@@ -20,14 +20,14 @@ Alternatively, download/clone the github repository from https://github.com/aeca
 devtools::install()
 ```
 
-## Details
+### Details
 Includes functions for  
 1. predicting the optimal time to spend learning for different learning curves: optlin(), opthyp(), optsig()  
 2. determining the accuracy of identification at a given time for different learning curve: linear(), hyperb(), sigmoid()  
 3. calculating the proportion that is correctly identified at a given time for different learning curves: proplin(), prophyp(), propsig()
 
 
-## Examples
+### Examples
 
 To predict the optimal amount of time to spend learning under a hyperbolic learning curve with curve parameter values of b and m, given a habitat loss rate of x = 0.02 and a false positive threshold of B = 0.2:
 
@@ -49,4 +49,4 @@ prop <- prophyp(B = 0.2, b = 10, m = 5, a = acc, t = ot_h1, x = 0.02)
 
 # Manuscript results and figures
 
-R scripts used to generate the results and figures presented in the manuscript can also be found in the analysis subfolder of this repository.
+R scripts used to generate the results and figures presented in the manuscript can be found in the analysis subfolder of this repository.
